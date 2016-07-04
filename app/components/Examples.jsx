@@ -2,7 +2,10 @@ import React, { PropTypes } from 'react'
 
 const Examples = (props) => {
     return (
-        <h2>Examples!</h2>
+        <div>
+            <h3>Examples Component!</h3>
+            <p>Welcome to examples page!</p>
+        </div>
     );
 };
 
