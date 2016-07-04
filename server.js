@@ -16,6 +16,6 @@ if (PORT !== 3000) {
 
 app.use(express.static('public'));
 
-app.listen(port, () => {
+app.listen(PORT, () => {
   console.log('Express server is up on port ', PORT);
 });
