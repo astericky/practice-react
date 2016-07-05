@@ -22,7 +22,7 @@ class WeathrForm extends React.Component {
                         ref="location"
                         placeholder="Enter city name"/>
                 </div>
-                <button>Get Weather</button>
+                <button className="button expanded hollow">Get Weather</button>
             </form>
         );
     }
