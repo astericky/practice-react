@@ -25,7 +25,7 @@ class Weather extends React.Component {
         }
     }
 
-    componentWillRecieveProps (newProps) {
+    componentWillReceiveProps (newProps) {
         var location = newProps.location.query.location;
 
         if (location && location.length > 0) {
