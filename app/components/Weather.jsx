@@ -12,11 +12,9 @@ class Weather extends React.Component {
         this.state = {
             isLoading: false
         };
-
-        this.handleSearch = this.handleSearch.bind(this);
     }
 
-    componentDidMount () {
+    componentDidMount = () => {
         var location = this.props.location.query.location;
 
         if (location && location.length > 0) {
@@ -25,7 +23,7 @@ class Weather extends React.Component {
         }
     }
 
-    componentWillReceiveProps (newProps) {
+    componentWillReceiveProps = (newProps) => {
         var location = newProps.location.query.location;
 
         if (location && location.length > 0) {
@@ -34,8 +32,7 @@ class Weather extends React.Component {
         }
     }
 
-    handleSearch (location) {
-
+    handleSearch = (location) => {
         this.setState({
             isLoading: true,
             errorMessage: undefined,
@@ -57,38 +54,40 @@ class Weather extends React.Component {
         });
     }
 
-    render () {
+    renderMessage = () => {
         var {isLoading, temp, location, errorMessage} = this.state;
 
-        function renderMessage() {
-
-            if (isLoading) {
-                return (
-                    <h3 className="text-center">Fetching weather...</h3>
-                );
-            } else if (temp && location) {
-                return (
-                    <WeatherMessage
-                        location={location}
-                        temp={temp}/>
-                );
-            }
+        if (isLoading) {
+            return (
+                <h3 className="text-center">Fetching weather...</h3>
+            );
+        } else if (temp && location) {
+            return (
+                <WeatherMessage
+                    location={location}
+                    temp={temp}/>
+            );
         }
+    }
 
-        function renderError() {
-            if (typeof errorMessage === 'string') {
-                return (
-                    <ErrorModal message={errorMessage}/>
-                );
-            }
+    renderError = () => {
+        var {errorMessage} = this.state;
+
+        if (typeof errorMessage === 'string') {
+            return (
+                <ErrorModal message={errorMessage}
+                    onClose={() => this.setState({errorMessage: undefined})}/>
+            );
         }
+    }
 
+    render () {
         return (
             <div>
                 <h1 className="text-center page-title">Get Weather</h1>
                 <WeatherForm onSearch={this.handleSearch}/>
-                {renderMessage()}
-                {renderError()}
+                {this.renderMessage()}
+                {this.renderError()}
             </div>
         );
     }
