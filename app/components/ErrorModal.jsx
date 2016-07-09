@@ -3,17 +3,17 @@ import {ReactDOM, ReactDOMServer} from 'react-dom';
 
 
 class ErrorModal extends React.Component {
+    static propTypes = {
+        title: React.PropTypes.string,
+        message: React.PropTypes.string.isRequired
+    }
+
+    static defaultProps = {
+        title: 'Error'
+    }
+
     constructor(props) {
         super(props);
-
-        this.propTypes = {
-            title: React.PropTypes.string,
-            message: React.PropTypes.string.isRequired
-        };
-
-        this.defaultProps = {
-            title: 'Error'
-        };
     }
 
     render () {
