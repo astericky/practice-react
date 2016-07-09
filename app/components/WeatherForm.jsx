@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 
-class WeathrForm extends React.Component {
+class WeatherForm extends React.Component {
     onFormSubmit = (e) => {
         e.preventDefault();
         console.log('Get Weather');
@@ -28,4 +28,4 @@ class WeathrForm extends React.Component {
     }
 }
 
-export default WeathrForm;
+export default WeatherForm;
